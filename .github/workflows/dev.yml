@@ -1,0 +1,35 @@
+name: Build and Push to ACR
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build-and-push-to-acr:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Log in to ACR
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ secrets.AZURE_URL }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: |
+          ${{ secrets.AZURE_URL }}/${{ secrets.IMAGE_TAG }}:${{ github.sha }}
+          ${{ secrets.AZURE_URL }}/${{ secrets.IMAGE_TAG }}:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
