@@ -8,7 +8,6 @@ import {
   Cpu,
   Layers,
   Zap,
-  ArrowRight,
 } from "lucide-react";
 
 const capabilities = [
@@ -146,7 +145,7 @@ const WhatWeDo = () => {
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -162,7 +161,7 @@ const WhatWeDo = () => {
             See Our Impact
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </motion.a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

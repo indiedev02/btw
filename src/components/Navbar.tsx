@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import Product from "@/assets/product.png"
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,16 +23,6 @@ const Navbar = () => {
         href: "/government",
       },
     ],
-    Services: [
-      { name: "Digital Transformation" },
-      { name: "Industrial IoT Solutions" },
-      { name: "Digital Twins" },
-      { name: "Industry 4.0" },
-      { name: "IT/OT Integration" },
-      { name: "Artificial Intelligence" },
-      { name: "Product Development" },
-      { name: "Salesforce Integration" },
-    ],
     "Our Product": {
       hasImage: true,
       link: "Explore Kernopy",
@@ -38,17 +30,17 @@ const Navbar = () => {
     },
   };
 
-  const resourcesData = {
-    Resources: [
-      { name: "Blogs", hasArrow: true },
-      { name: "Casestudies", hasArrow: true },
-      { name: "Ebooks", hasArrow: true },
-      { name: "Whitepapers", hasArrow: true },
-    ],
-    "Featured Blogs": {
-      hasBlogs: true,
-    },
-  };
+  // const resourcesData = {
+  //   Resources: [
+  //     { name: "Blogs", hasArrow: true },
+  //     { name: "Casestudies", hasArrow: true },
+  //     { name: "Ebooks", hasArrow: true },
+  //     { name: "Whitepapers", hasArrow: true },
+  //   ],
+  //   "Featured Blogs": {
+  //     hasBlogs: true,
+  //   },
+  // };
 
   return (
     <nav className="relative z-50 top-10">
@@ -80,23 +72,9 @@ const Navbar = () => {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-lg mb-4">Services</h3>
-                <ul className="space-y-3">
-                  {servicesData.Services.map((item, idx) => (
-                    <li key={idx}>
-                      <a
-                        href="#"
-                        className="text-gray-700 hover:text-blue-600 transition-colors"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
                 <h3 className="font-bold text-lg mb-4">Our Product</h3>
-                <div className="bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg h-40 mb-3"></div>
+                {/* <div className="bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg h-40 mb-3"></div> */}
+                <Image src={Product} alt="product" height={160} />
                 <Link
                   href="/#products"
                   className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
@@ -115,7 +93,7 @@ const Navbar = () => {
             Our Products
           </Link>
         </div>
-        <div className="relative group">
+        {/* <div className="relative group">
           <button className="flex gap-1 items-center hover:text-gray-300 transition-colors">
             Resources <ChevronDown className="w-4 h-4" />
           </button>
@@ -163,9 +141,12 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        </div>
-        <Link href="/" className="hover:text-gray-300 transition-colors">
+        </div> */}
+        {/* <Link href="/" className="hover:text-gray-300 transition-colors">
           Careers
+        </Link> */}
+        <Link href="/teams" className="hover:text-gray-300 transition-colors">
+          Our Team
         </Link>
       </div>
 
@@ -202,9 +183,8 @@ const Navbar = () => {
               >
                 Services
                 <ChevronDown
-                  className={`w-5 h-5 transition-transform ${
-                    openAccordion === "services" ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 transition-transform ${openAccordion === "services" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
               {openAccordion === "services" && (
@@ -224,20 +204,6 @@ const Navbar = () => {
                             {item.hasArrow && (
                               <ArrowUpRight className="w-3 h-3" />
                             )}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-gray-400">
-                      Services
-                    </h4>
-                    <ul className="space-y-2">
-                      {servicesData.Services.map((item, idx) => (
-                        <li key={idx}>
-                          <Link href="#" className="text-sm">
-                            {item.name}
                           </Link>
                         </li>
                       ))}
@@ -266,16 +232,15 @@ const Navbar = () => {
             </Link>
 
             {/* Resources Accordion */}
-            <div className="border-b border-gray-700">
+            {/* <div className="border-b border-gray-700">
               <button
                 onClick={() => toggleAccordion("resources")}
                 className="w-full flex justify-between items-center py-3 text-lg"
               >
                 Resources
                 <ChevronDown
-                  className={`w-5 h-5 transition-transform ${
-                    openAccordion === "resources" ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 transition-transform ${openAccordion === "resources" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
               {openAccordion === "resources" && (
@@ -310,10 +275,13 @@ const Navbar = () => {
                   </div>
                 </div>
               )}
-            </div>
+            </div> */}
 
-            <Link href="/" className="block py-3 text-lg">
+            {/* <Link href="/" className="block py-3 text-lg">
               Careers
+            </Link> */}
+            <Link href="/teams" className="block py-3 text-lg">
+              Our Team
             </Link>
           </div>
         </div>
