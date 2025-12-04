@@ -1,14 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Network,
-  Cloud,
-  BarChart3,
-  Cpu,
-  Layers,
-  Zap,
-} from "lucide-react";
+import { Network, Cloud, BarChart3, Cpu, Layers, Zap } from "lucide-react";
 
 const capabilities = [
   {
@@ -60,7 +53,7 @@ const WhatWeDo = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 leading-tight">
             Engineering Digital Transformation
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Building connected, scalable, and data-driven systems for modern
             enterprises
           </p>
@@ -85,7 +78,7 @@ const WhatWeDo = () => {
                   <h3 className="text-xl 2xl:text-2xl font-semibold mb-2">
                     Our Approach
                   </h3>
-                  <p className="text-sm 2xl:text-base text-gray-600 leading-relaxed">
+                  <p className="text-base text-gray-600 leading-relaxed">
                     We combine strong R&D with advanced IoT, cloud, and
                     analytics capabilities to create intelligent platforms that
                     streamline operations and power real-time decision-making.
