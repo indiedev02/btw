@@ -117,7 +117,7 @@ const Why = () => {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-[#00525E] mb-1">
-                      50+
+                      15+
                     </div>
                     <div className="text-sm text-gray-600">
                       Projects Delivered
