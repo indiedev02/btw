@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import teamImg from "@/assets/industryGirl.png";
+import Specialize from "@/assets/Specialize.jpg";
 
 const reasons = [
   "Multi-protocol Industrial Sensors (temperature, vibration, pressure, torque, flow)",
@@ -60,8 +60,8 @@ const Extra = () => {
           >
             <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-xl">
               <Image
-                src={teamImg}
-                alt="Team collaboration"
+                src={Specialize}
+                alt="Specialization"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

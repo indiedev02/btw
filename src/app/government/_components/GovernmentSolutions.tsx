@@ -13,7 +13,11 @@ import {
   Lock,
   ArrowUpRight,
 } from "lucide-react";
-
+import Image from "next/image";
+import DomainCoverage from "@/assets/DomainCoverage.jpg";
+import SeamlessIntegration from "@/assets/SeamlessIntegration.jpg";
+import Confidential from "@/assets/Confidential.jpg";
+import GovernmentCollaboration from "@/assets/GovernmentCollaboration.jpg";
 const integrations = [
   "On-prem data centers & NIC hosting",
   "Legacy MIS systems and internal ERP/CRM systems",
@@ -98,10 +102,13 @@ const GovernmentSolutions = () => {
             transition={{ duration: 0.6 }}
             className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl"
           >
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-              alt="Government team collaboration"
-              className="w-full h-full object-cover"
+            <Image
+              src={GovernmentCollaboration}
+              alt="Government Team Collaboration"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
           </motion.div>
         </div>
@@ -115,10 +122,13 @@ const GovernmentSolutions = () => {
             transition={{ duration: 0.6 }}
             className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl order-2 lg:order-1"
           >
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-              alt="Integration infrastructure"
-              className="w-full h-full object-cover"
+            <Image
+              src={SeamlessIntegration}
+              alt="Seamless Integration"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
           </motion.div>
 
@@ -208,10 +218,13 @@ const GovernmentSolutions = () => {
               transition={{ duration: 0.6 }}
               className="relative h-[600px] rounded-3xl overflow-hidden shadow-xl"
             >
-              <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-                alt="Domain coverage"
-                className="w-full h-full object-cover"
+              <Image
+                src={DomainCoverage}
+                alt="Domain Coverage"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </motion.div>
           </div>
@@ -226,10 +239,13 @@ const GovernmentSolutions = () => {
             transition={{ duration: 0.6 }}
             className="relative h-[400px] rounded-2xl overflow-hidden shadow-lg"
           >
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-              alt="Security compliance"
-              className="w-full h-full object-cover"
+            <Image
+              src={Confidential}
+              alt="Confidentiality"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
           </motion.div>
 

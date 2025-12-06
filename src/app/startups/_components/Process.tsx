@@ -2,7 +2,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
-
+import Image from "next/image";
+import GovernmentCollaboration from "@/assets/GovernmentCollaboration.jpg";
+import Design from "@/assets/Design.jpg";
+import Deploy from "@/assets/Deploy.jpg";
+import Develop from "@/assets/Develop.jpg";
 const phases = [
   {
     id: "discover",
@@ -13,8 +17,7 @@ const phases = [
     outcome:
       "Outcome: A clear product strategy, roadmap, and technical architecture that everyone understands.",
     color: "#FF5733",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=800&fit=crop",
+    image: GovernmentCollaboration,
   },
   {
     id: "design",
@@ -25,8 +28,7 @@ const phases = [
     outcome:
       "Outcome: A well-designed experience that is intuitive, branded, and user-validated.",
     color: "#FF5733",
-    image:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=800&fit=crop",
+    image: Design,
   },
   {
     id: "build",
@@ -37,8 +39,7 @@ const phases = [
     outcome:
       "Outcome: A stable, scalable MVP or full product delivered with clean code and transparency.",
     color: "#FF5733",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=800&fit=crop",
+    image: Develop,
   },
   {
     id: "deploy",
@@ -49,8 +50,7 @@ const phases = [
     outcome:
       "Outcome: A smooth rollout with reliable performance — ready to scale confidently.",
     color: "#FF5733",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=800&fit=crop",
+    image: Deploy,
   },
 ];
 
@@ -192,10 +192,13 @@ const Process = () => {
                 className="relative"
               >
                 <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-100">
-                  <img
+                  <Image
                     src={phase.image}
-                    alt={phase.subtitle}
-                    className="w-full h-full object-cover"
+                    alt="phase.subtitle"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>

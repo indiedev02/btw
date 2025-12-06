@@ -2,8 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import React from "react";
 import kernopy from "@/assets/kernopy.png";
-import edge from "@/assets/edge.png";
-import archi from "@/assets/architecture.png";
+import kernopyEdge from "@/assets/KernopyEdgeScreenshot.png";
+import FactoryFloor from "@/assets/FactoryFloor.png";
 import { SquareCheckBig } from "lucide-react";
 
 const features = [
@@ -57,13 +57,13 @@ const Product = () => {
             </div>
           </div>
           <div className="md:w-6/12 flex justify-center md:justify-end items-center my-4 md:my-0">
-            <Image src={edge} alt="edge" unoptimized />
+            <Image src={kernopyEdge} alt="edge" unoptimized />
           </div>
         </CardContent>
       </Card>
 
       <div className="flex justify-center items-center my-14 lg:px-40">
-        <Image src={archi} alt="architecture" placeholder="blur" />
+        <Image src={FactoryFloor} alt="architecture" placeholder="blur" />
       </div>
     </div>
   );

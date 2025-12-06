@@ -1,7 +1,7 @@
 "use client";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
-import Industrial from "@/assets/industrial.jpg";
+import Industrial from "@/assets/Industrial.jpg";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 

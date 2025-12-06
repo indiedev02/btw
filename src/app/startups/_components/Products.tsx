@@ -1,19 +1,22 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import KernopyProduct from "@/assets/KernopyProduct.png";
+import AriviProduct from "@/assets/AriviProduct.png";
 
 const products = [
   {
-    name: "Kernopy",
-    gradient: "from-[#0a1f2e] via-[#0d4d5c] to-[#0a1f2e]",
+    name: "",
+    image: KernopyProduct, // Update with your actual image path
   },
   {
     name: "Airvi",
-    gradient: "from-[#0a1f2e] via-[#1a5a6a] to-[#0a1f2e]",
+    image: AriviProduct, // Update with your actual image path
   },
   {
     name: "Incentive Management",
-    gradient: "from-[#0a1f2e] via-[#0d4d5c] to-[#0a1f2e]",
+    image: "/images/incentive-management.jpg", // Update with your actual image path
   },
 ];
 
@@ -49,9 +52,16 @@ const Products = () => {
             whileHover={{ y: -8 }}
             className="md:row-span-2"
           >
-            <div
-              className={`relative h-full min-h-[500px] rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br ${products[0].gradient} group cursor-pointer`}
-            >
+            <div className="relative h-full min-h-[500px] rounded-3xl overflow-hidden shadow-xl group cursor-pointer">
+              <Image
+                src={products[0].image}
+                alt={products[0].name}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              {/* Dark overlay for text readability */}
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.h3
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -63,8 +73,6 @@ const Products = () => {
                   {products[0].name}
                 </motion.h3>
               </div>
-              {/* Subtle gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </motion.div>
 
@@ -77,9 +85,15 @@ const Products = () => {
             whileHover={{ y: -8 }}
             className="md:row-span-1"
           >
-            <div
-              className={`relative h-full min-h-[240px] rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br ${products[1].gradient} group cursor-pointer`}
-            >
+            <div className="relative h-full min-h-[240px] rounded-3xl overflow-hidden shadow-xl group cursor-pointer">
+              <Image
+                src={products[1].image}
+                alt={products[1].name}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.h3
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -91,7 +105,6 @@ const Products = () => {
                   {products[1].name}
                 </motion.h3>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </motion.div>
 
@@ -105,7 +118,7 @@ const Products = () => {
             className="md:row-span-1"
           >
             <div
-              className={`relative h-full min-h-[240px] rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br ${products[2].gradient} group cursor-pointer`}
+              className={`relative h-full min-h-[240px] rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-[#0a1f2e] via-[#0d4d5c] to-[#0a1f2e] group cursor-pointer`}
             >
               <div className="absolute inset-0 flex items-center justify-center px-8">
                 <motion.h3

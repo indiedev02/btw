@@ -2,62 +2,63 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import Furnace from "@/assets/Furnace.jpg";
+import Food from "@/assets/Food.jpg";
+import Pharma from "@/assets/Pharma.jpg";
+import Oil from "@/assets/Oil.jpg";
+import Paint from "@/assets/Paint.jpg";
+import Automotive from "@/assets/Automotive.jpg";
+import IndustrialPlant from "@/assets/IndustrialPlant.jpg";
+import SmartFactory from "@/assets/SmartFactory.jpg";
+import Image from "next/image";
 
 const industries = [
   {
     title: "Furnace & Heat Treatment System Manufacturers",
     description:
       "Vacuum furnaces, atm furnaces, induction heating, nitriding, brazing",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
+    image: Furnace,
   },
   {
     title: "Automotive & Mobility Manufacturing",
     description:
       "Bus/Truck assembly lines, EV parts manufacturing, powertrain machining",
-    image:
-      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop",
+    image: Automotive,
   },
   {
     title: "Paint, Coating & Chemical Production Plants",
     description:
       "Batch processing, mixing, curing, hazardous environment monitoring",
-    image:
-      "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=800&h=600&fit=crop",
+    image: Paint,
   },
   {
     title: "Heavy Engineering & Industrial Machinery Plants",
     description:
       "CNC, forging, casting, hydraulic systems, high-precision machining",
-    image:
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&h=600&fit=crop",
+    image: IndustrialPlant,
   },
   {
     title: "Oil, Gas & Petrochemical Industries",
     description:
       "Refineries, tank farms, compressor stations, pipeline monitoring",
-    image:
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=600&fit=crop",
+    image: Oil,
   },
   {
     title: "Pharma & Life Sciences Manufacturing",
     description:
       "Clean room environments, controlled batch production, QA traceability",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop",
+    image: Pharma,
   },
   {
     title: "Food & Beverage Processing Units",
     description: "Extrusion, molding, lamination, automated packing systems",
-    image:
-      "https://images.unsplash.com/photo-1565373679680-f73b2e4d85dc?w=800&h=600&fit=crop",
+    image: Food,
   },
   {
     title: "Smart Factory Transition for Legacy Plants",
     description:
       "Brownfield IoT upgrades, PLC/SCADA integration, HMI modernization",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop",
+    image: SmartFactory,
   },
 ];
 
@@ -179,10 +180,13 @@ const IndustriesWeServe = () => {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
-                  <img
+                  <Image
                     src={industries[activeIndex].image}
                     alt={industries[activeIndex].title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
                   />
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -200,9 +204,6 @@ const IndustriesWeServe = () => {
                   </div>
                 </motion.div>
               </AnimatePresence>
-
-              {/* Border accent */}
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#00525E] via-[#E7563D] to-[#000B9E]" />
             </div>
           </motion.div>
         </div>

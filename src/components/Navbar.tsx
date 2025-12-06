@@ -3,9 +3,9 @@ import { useState } from "react";
 import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import Product from "@/assets/product.png"
+import KernopyProduct from "@/assets/KernopyProduct.png";
 
-const Navbar = () => {
+const Navbar = ({ isDark = false }: { isDark?: boolean }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState("");
 
@@ -30,22 +30,12 @@ const Navbar = () => {
     },
   };
 
-  // const resourcesData = {
-  //   Resources: [
-  //     { name: "Blogs", hasArrow: true },
-  //     { name: "Casestudies", hasArrow: true },
-  //     { name: "Ebooks", hasArrow: true },
-  //     { name: "Whitepapers", hasArrow: true },
-  //   ],
-  //   "Featured Blogs": {
-  //     hasBlogs: true,
-  //   },
-  // };
-
   return (
     <nav className="relative z-50 top-10">
       {/* Desktop Navbar */}
-      <div className="hidden lg:flex text-white top-10 gap-10 w-fit mx-auto text-lg">
+      <div
+        className={`hidden lg:flex ${isDark ? "text-black" : "text-white"} top-10 gap-10 w-fit mx-auto text-lg`}
+      >
         <Link href="/" className="hover:text-gray-300 transition-colors">
           Home
         </Link>
@@ -74,7 +64,7 @@ const Navbar = () => {
               <div>
                 <h3 className="font-bold text-lg mb-4">Our Product</h3>
                 {/* <div className="bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg h-40 mb-3"></div> */}
-                <Image src={Product} alt="product" height={160} />
+                <Image src={KernopyProduct} alt="product" height={160} />
                 <Link
                   href="/#products"
                   className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
@@ -183,8 +173,9 @@ const Navbar = () => {
               >
                 Services
                 <ChevronDown
-                  className={`w-5 h-5 transition-transform ${openAccordion === "services" ? "rotate-180" : ""
-                    }`}
+                  className={`w-5 h-5 transition-transform ${
+                    openAccordion === "services" ? "rotate-180" : ""
+                  }`}
                 />
               </button>
               {openAccordion === "services" && (

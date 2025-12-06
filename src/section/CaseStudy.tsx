@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import furnaceImg from "@/assets/furnace.png";
+import furnaceImg from "@/assets/CaseFurnace.png";
 import salesforce from "@/assets/salesforce.png";
 import f500 from "@/assets/f500.png";
 

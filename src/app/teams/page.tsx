@@ -1,263 +1,300 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Users } from "lucide-react";
 
-const teamMembers = [
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import { useRef } from "react";
+import { TeamMemberCard } from "./_components/TeamMemberCard";
+import { FounderCard } from "./_components/FounerCard";
+import Navbar from "@/components/Navbar";
+
+// Founder data
+const founders = [
   {
     name: "Avirup Basu",
-    role: "IoT Solutions Architect",
-    color: "bg-gradient-to-br from-blue-100 to-blue-200",
+    role: "Co-Founder & CEO",
+    description:
+      "A visionary leader with 15 years of experience in technology innovation. Alexandra has led multiple successful ventures and is passionate about building products that make a difference. Her strategic thinking and relentless drive have been instrumental in shaping our company's direction.",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=face",
   },
   {
-    name: "Kunal Sharma",
-    role: "Full Stack Developer",
-    color: "bg-gradient-to-br from-purple-100 to-purple-200",
+    name: "Kazi Haque",
+    role: "Co-Founder & CTO",
+    description:
+      "An architect of scalable systems and believer in elegant code. Marcus brings deep expertise in distributed systems and AI, having previously led engineering teams at Fortune 500 companies. He champions innovation while maintaining the highest standards of technical excellence.",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&crop=face",
+  },
+];
+
+// Team members data
+const teamMembers = [
+  {
+    name: "Subranil Sarkar",
+    role: "Head of Design",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face",
   },
   {
     name: "Debajyoti Sarkar",
-    role: "DevOps Engineer",
-    color: "bg-gradient-to-br from-gray-100 to-gray-200",
+    role: "Lead Engineer",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
   },
   {
-    name: "Shubranil Sharkar",
-    role: "UX/UI Designer",
-    color: "bg-gradient-to-br from-green-100 to-green-200",
+    name: "Kunal Sharma",
+    role: "Product Manager",
+    image:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop&crop=face",
+  },
+  {
+    name: "Akash Bilung",
+    role: "Data Scientist",
+    image:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face",
+  },
+  {
+    name: "Swarna Shikar Das",
+    role: "Marketing Director",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&crop=face",
   },
 ];
 
-const highlights = [
-  {
-    title: "Quick and adaptable",
-    description:
-      "Scale your team within 72 hours. Easily adjust team size from month to month as required.",
-    color: "bg-gradient-to-br from-emerald-100 to-teal-100",
+// Animation variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
   },
-  {
-    title: "Expert Talent Pool",
-    description:
-      "Pre-vetted developers, designers, and engineers with world-class technical and communication skills.",
-    color: "bg-gradient-to-br from-purple-100 to-indigo-100",
-  },
-  {
-    title: "Transparent pricing",
-    description:
-      "Rest assured, there are no crazy fees or legal hassle to worry about.",
-    color: "bg-gradient-to-br from-orange-100 to-amber-100",
-  },
-];
-
-const TeamHeroSection = () => {
-  return (
-    <section className="relative min-h-screen lg:h-screen w-full bg-gradient-to-br from-gray-50 to-white overflow-hidden lg:py-12">
-      <div className="h-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-12 lg:py-0">
-        <div className="h-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8 lg:space-y-10"
-          >
-            <div className="space-y-4">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight"
-              >
-                Build your dream team today.
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg md:text-xl text-gray-600 max-w-xl"
-              >
-                Unlock success with our handpicked dream team of experts. Hire
-                now for unparalleled results.
-              </motion.p>
-            </div>
-
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-4"
-            >
-              <motion.a
-                href="https://calendly.com/blackspektro/"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl group"
-              >
-                Hiring? Book a call
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
-
-              {/* Team Avatars */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex items-center"
-              >
-                <div className="flex -space-x-3">
-                  {[1, 2, 3].map((i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 border-2 border-white flex items-center justify-center text-white font-bold text-sm"
-                    >
-                      {String.fromCharCode(64 + i)}
-                    </div>
-                  ))}
-                  <div className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-gray-600 font-semibold text-xs">
-                    +28
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Grid - Team Cards */}
-          <div className="grid grid-cols-2 gap-4 lg:gap-6 auto-rows-fr">
-            {/* Large team member card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="col-span-2 md:col-span-1 md:row-span-2 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div
-                className={`${teamMembers[0].color} h-full p-6 flex flex-col justify-end min-h-[300px] lg:min-h-[400px]`}
-              >
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 inline-flex items-center gap-2 self-start shadow-md">
-                  <span className="font-semibold text-gray-900">
-                    {teamMembers[0].name}
-                  </span>
-                  <div className="w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
-                    <Users className="w-3 h-3 text-white" />
-                  </div>
-                </div>
-                <p className="text-gray-600 text-sm mt-2 ml-4">
-                  {teamMembers[0].role}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Highlight card 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="col-span-2 md:col-span-1 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div
-                className={`${highlights[0].color} h-full p-6 flex flex-col justify-between min-h-[200px]`}
-              >
-                <h3 className="text-xl font-bold text-gray-900">
-                  {highlights[0].title}
-                </h3>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  {highlights[0].description}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Team member card 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="col-span-1 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div
-                className={`${teamMembers[1].color} h-full p-6 flex flex-col justify-end min-h-[200px]`}
-              >
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 inline-flex items-center gap-2 self-start shadow-md">
-                  <span className="font-semibold text-gray-900 text-sm">
-                    {teamMembers[1].name}
-                  </span>
-                  <div className="w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
-                    <Users className="w-3 h-3 text-white" />
-                  </div>
-                </div>
-                <p className="text-gray-600 text-xs mt-2 ml-4">
-                  {teamMembers[1].role}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Highlight card 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-              className="col-span-1 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div
-                className={`${highlights[1].color} h-full p-6 flex flex-col justify-between min-h-[200px]`}
-              >
-                <h3 className="text-lg font-bold text-gray-900">
-                  {highlights[1].title}
-                </h3>
-                <p className="text-gray-700 text-xs leading-relaxed">
-                  {highlights[1].description}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Team member card 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
-              className="col-span-1 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div
-                className={`${teamMembers[2].color} h-full p-6 flex flex-col justify-end min-h-[200px]`}
-              >
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 inline-flex items-center gap-2 self-start shadow-md">
-                  <span className="font-semibold text-gray-900 text-sm">
-                    {teamMembers[2].name}
-                  </span>
-                  <div className="w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
-                    <Users className="w-3 h-3 text-white" />
-                  </div>
-                </div>
-                <p className="text-gray-600 text-xs mt-2 ml-4">
-                  {teamMembers[2].role}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Highlight card 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.1 }}
-              className="col-span-1 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div
-                className={`${highlights[2].color} h-full p-6 flex flex-col justify-between min-h-[200px]`}
-              >
-                <h3 className="text-lg font-bold text-gray-900">
-                  {highlights[2].title}
-                </h3>
-                <p className="text-gray-700 text-xs leading-relaxed">
-                  {highlights[2].description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
 };
 
-export default TeamHeroSection;
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+// Main Team Page Component
+export default function TeamPage() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const heroY = useTransform(heroScroll, [0, 1], [0, 200]);
+  const heroOpacity = useTransform(heroScroll, [0, 0.8], [1, 0]);
+
+  return (
+    <main className="bg-zinc-50 min-h-screen overflow-x-hidden">
+      <Navbar isDark={true} />
+
+      {/* Hero Section */}
+      <motion.section
+        ref={heroRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        style={{ opacity: heroOpacity }}
+      >
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute top-20 left-10 w-80 h-80 rounded-full bg-gradient-to-br from-emerald-200 to-cyan-200 blur-3xl opacity-50"
+            animate={{
+              scale: [1, 1.2, 1],
+              x: [0, 30, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-gradient-to-br from-violet-200 to-fuchsia-200 blur-3xl opacity-40"
+            animate={{
+              scale: [1, 1.1, 1],
+              y: [0, -40, 0],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
+
+        <motion.div
+          className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+          style={{ y: heroY }}
+        >
+          <motion.span
+            className="inline-block uppercase font-semibold text-emerald-600 mb-6"
+            style={{ fontSize: "13px", letterSpacing: "0.3em" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            The People Behind the Vision
+          </motion.span>
+
+          <motion.h1
+            className="font-extrabold text-zinc-900 leading-none mb-8"
+            style={{ fontSize: "clamp(48px, 10vw, 120px)" }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Meet Our
+            <br />
+            <span className="bg-gradient-to-r from-emerald-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent">
+              Team
+            </span>
+          </motion.h1>
+
+          <motion.p
+            className="text-zinc-500 font-normal max-w-2xl mx-auto"
+            style={{ fontSize: "18px", lineHeight: "1.7" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
+            A collective of dreamers, builders, and innovators united by a
+            shared passion for creating meaningful impact through technology.
+          </motion.p>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            className="absolute bottom-12 left-1/2 -translate-x-1/2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+          >
+            <motion.div
+              className="w-7 h-12 border-2 border-zinc-300 rounded-full flex justify-center pt-2"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <motion.div
+                className="w-1.5 h-3 bg-zinc-400 rounded-full"
+                animate={{ opacity: [1, 0, 1], y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.section>
+
+      {/* Founders Section */}
+      <section className="relative py-20 px-6 md:px-12 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={staggerContainer}
+          >
+            <motion.span
+              className="inline-block uppercase font-semibold text-emerald-600 mb-4"
+              style={{ fontSize: "13px", letterSpacing: "0.2em" }}
+              variants={fadeInUp}
+            >
+              Leadership
+            </motion.span>
+            <motion.h2
+              className="font-bold text-zinc-900"
+              style={{ fontSize: "clamp(32px, 5vw, 48px)" }}
+              variants={fadeInUp}
+            >
+              Our Founders
+            </motion.h2>
+          </motion.div>
+
+          {/* Founders Cards */}
+          {founders.map((founder, index) => (
+            <FounderCard key={founder.name} founder={founder} index={index} />
+          ))}
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="relative h-40 flex items-center justify-center overflow-hidden">
+        <motion.div
+          className="absolute w-full h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+        />
+        <motion.div
+          className="relative z-10 w-4 h-4 bg-gradient-to-br from-emerald-500 to-cyan-500 rotate-45 rounded-sm"
+          initial={{ scale: 0, rotate: 0 }}
+          whileInView={{ scale: 1, rotate: 45 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        />
+      </div>
+
+      {/* Team Members Section */}
+      <section className="relative py-20 px-6 md:px-12 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={staggerContainer}
+          >
+            <motion.span
+              className="inline-block uppercase font-semibold text-emerald-600 mb-4"
+              style={{ fontSize: "13px", letterSpacing: "0.2em" }}
+              variants={fadeInUp}
+            >
+              The Team
+            </motion.span>
+            <motion.h2
+              className="font-bold text-zinc-900 mb-6"
+              style={{ fontSize: "clamp(32px, 5vw, 48px)" }}
+              variants={fadeInUp}
+            >
+              Brilliant Minds
+            </motion.h2>
+            <motion.p
+              className="text-zinc-500 font-normal max-w-xl mx-auto"
+              style={{ fontSize: "16px", lineHeight: "1.7" }}
+              variants={fadeInUp}
+            >
+              The talented individuals who bring expertise, creativity, and
+              dedication to everything we build.
+            </motion.p>
+          </motion.div>
+
+          {/* Team Grid */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-24"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            {teamMembers.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index} />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer Spacing */}
+      <div className="h-20 bg-zinc-50" />
+    </main>
+  );
+}

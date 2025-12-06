@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import Image from "next/image";
-import teamImg from "@/assets/industryGirl.png";
+import whyImg from "@/assets/Why.jpg";
 
 const reasons = [
   {
@@ -96,7 +96,7 @@ const Why = () => {
           >
             <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-xl">
               <Image
-                src={teamImg}
+                src={whyImg}
                 alt="Team collaboration"
                 fill
                 className="object-cover"

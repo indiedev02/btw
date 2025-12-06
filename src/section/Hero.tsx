@@ -2,9 +2,9 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Industrial from "@/assets/industrial.jpg";
+import Industrial from "@/assets/Industrial.jpg";
 import Startups from "@/assets/startups.jpg";
-import Government from "@/assets/government.png";
+import Government from "@/assets/Government.png";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
