@@ -26,7 +26,7 @@ const Navbar = ({ isDark = false }: { isDark?: boolean }) => {
     "Our Product": {
       hasImage: true,
       link: "Explore Kernopy",
-      href: "/#products",
+      href: "/product",
     },
   };
 
@@ -66,7 +66,7 @@ const Navbar = ({ isDark = false }: { isDark?: boolean }) => {
                 {/* <div className="bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg h-40 mb-3"></div> */}
                 <Image src={KernopyProduct} alt="product" height={160} />
                 <Link
-                  href="/#products"
+                  href="/product"
                   className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
                 >
                   Explore Kernopy <ArrowUpRight className="w-4 h-4" />
@@ -77,7 +77,7 @@ const Navbar = ({ isDark = false }: { isDark?: boolean }) => {
         </div>
         <div className="relative group">
           <Link
-            href={"/#products"}
+            href={"/product"}
             className="flex gap-1 items-center hover:text-gray-300 transition-colors"
           >
             Our Products
@@ -216,7 +216,7 @@ const Navbar = ({ isDark = false }: { isDark?: boolean }) => {
             </div>
 
             <Link
-              href="/#products"
+              href="/product"
               className="block py-3 text-lg border-b border-gray-700"
             >
               Our Products
