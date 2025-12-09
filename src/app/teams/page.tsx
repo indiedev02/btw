@@ -10,17 +10,17 @@ import Navbar from "@/components/Navbar";
 const founders = [
   {
     name: "Avirup Basu",
-    role: "Co-Founder & CEO",
+    role: "Founder & Director",
     description:
-      "A visionary leader with 15 years of experience in technology innovation. Alexandra has led multiple successful ventures and is passionate about building products that make a difference. Her strategic thinking and relentless drive have been instrumental in shaping our company's direction.",
+      "Avirup is an engineering-led founder with experience across cloud platforms, AI systems, SaaS product development, and large-scale real-time applications. Before starting Blackspektro, he helped architect and roll out multiple enterprise SaaS products at P360. Driven by research and real-world impact, he enjoys building intelligent, scalable systems that solve meaningful problems. He also leads GDG Siliguri, one of the region’s most active tech communities, and has been recognised as an Intel Software Innovator and has delivered multiple talks within India and global platforms. Outside work, he’s a passionate technologist and cyclist.",
     image:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=face",
   },
   {
     name: "Kazi Haque",
-    role: "Co-Founder & CTO",
+    role: "Co-Founder & Chief Growth Architect",
     description:
-      "An architect of scalable systems and believer in elegant code. Marcus brings deep expertise in distributed systems and AI, having previously led engineering teams at Fortune 500 companies. He champions innovation while maintaining the highest standards of technical excellence.",
+      "Kazi is an engineering-led growth architect and co-founder at Blackspektro, with hands-on experience in scaling SaaS products, shaping growth strategies, and building platforms that solve real-world problems. He brings a mix of business insight, product thinking, and a passion for growth always focused on creating value and impact through smart, scalable solutions. Outside of work, Kazi is driven by curiosity, constant learning, and building communities around technology and innovation.",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&crop=face",
   },
