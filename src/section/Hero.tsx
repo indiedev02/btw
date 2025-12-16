@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Industrial from "@/assets/Industrial.jpg";
 import Startups from "@/assets/startups.jpg";
-import Government from "@/assets/Government.png";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Government from "@/assets/Government.jpg";
 
 const heroContent = [
   {

@@ -1,7 +1,7 @@
 "use client";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
-import Government from "@/assets/Government.png";
+import Government from "@/assets/Government.jpg";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 

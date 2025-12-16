@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion";
+import { StaticImageData } from "next/image";
 
 const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -12,7 +13,7 @@ export function TeamMemberCard({
   member,
   index,
 }: {
-  member: { name: string; role: string; image: string };
+  member: { name: string; role: string; image: StaticImageData };
   index: number;
 }) {
   return (
@@ -24,7 +25,7 @@ export function TeamMemberCard({
     >
       <div className="relative overflow-hidden rounded-2xl aspect-[4/5]">
         <motion.img
-          src={member.image}
+          src={member.image.src}
           alt={member.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />

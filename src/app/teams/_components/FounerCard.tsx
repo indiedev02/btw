@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import { StaticImageData } from "next/image";
 // Founder Card Component
 const fadeIn: Variants = {
   hidden: { opacity: 0 },
@@ -21,7 +22,12 @@ export function FounderCard({
   founder,
   index,
 }: {
-  founder: { name: string; role: string; description: string; image: string };
+  founder: {
+    name: string;
+    role: string;
+    description: string;
+    image: StaticImageData;
+  };
   index: number;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -54,7 +60,7 @@ export function FounderCard({
             transition={{ duration: 1.2 }}
           />
           <motion.img
-            src={founder.image}
+            src={founder.image.src}
             alt={founder.name}
             className="w-full h-full object-cover"
             initial={{ scale: 1.2 }}
