@@ -9,7 +9,9 @@ import Kazi from "@/assets/Kazi.jpeg";
 import Avirup from "@/assets/Avirup.jpeg";
 import Kunal from "@/assets/Kunal.jpg";
 import Debajyoti from "@/assets/Debajyoti.jpeg";
-
+import Swarna from "@/assets/Swarna.jpg";
+import Akash from "@/assets/Akash.jpeg";
+import Shubranil from "@/assets/Shubranil.jpeg";
 // Founder data
 const founders = [
   {
@@ -18,6 +20,7 @@ const founders = [
     description:
       "Avirup is an engineering-led founder with experience across cloud platforms, AI systems, SaaS product development, and large-scale real-time applications. Before starting Blackspektro, he helped architect and roll out multiple enterprise SaaS products at P360. Driven by research and real-world impact, he enjoys building intelligent, scalable systems that solve meaningful problems. He also leads GDG Siliguri, one of the region’s most active tech communities, and has been recognised as an Intel Software Innovator and has delivered multiple talks within India and global platforms. Outside work, he’s a passionate technologist and cyclist.",
     image: Avirup,
+    linkedin: "https://in.linkedin.com/in/avirup171",
   },
   {
     name: "Kazi Haque",
@@ -25,17 +28,12 @@ const founders = [
     description:
       "Kazi is an engineering-led growth architect and co-founder at Blackspektro, with hands-on experience in scaling SaaS products, shaping growth strategies, and building platforms that solve real-world problems. He brings a mix of business insight, product thinking, and a passion for growth always focused on creating value and impact through smart, scalable solutions. Outside of work, Kazi is driven by curiosity, constant learning, and building communities around technology and innovation.",
     image: Kazi,
+    linkedin: "https://in.linkedin.com/in/haquekazi",
   },
 ];
 
 // Team members data
 const teamMembers = [
-  // {
-  //   name: "Subranil Sarkar",
-  //   role: "Head of Design",
-  //   image:
-  //     "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face",
-  // },
   {
     name: "Debajyoti Sarkar",
     role: "Lead Engineer",
@@ -43,21 +41,24 @@ const teamMembers = [
   },
   {
     name: "Kunal Sharma",
-    role: "Product Manager",
+    role: "Product Engineer",
     image: Kunal,
   },
-  // {
-  //   name: "Akash Bilung",
-  //   role: "Data Scientist",
-  //   image:
-  //     "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face",
-  // },
-  // {
-  //   name: "Swarna Shikar Das",
-  //   role: "Marketing Director",
-  //   image:
-  //     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&crop=face",
-  // },
+  {
+    name: "Akash Bilung",
+    role: "Product Engineer",
+    image: Akash,
+  },
+  {
+    name: "Subranil Sarkar",
+    role: "Product Designer",
+    image: Shubranil,
+  },
+  {
+    name: "Swarna Shikar Das",
+    role: "Full Stack Engineer",
+    image: Swarna,
+  },
 ];
 
 // Animation variants
