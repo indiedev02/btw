@@ -15,17 +15,17 @@ const products = {
     {
       id: 1,
       url: Home,
-      text: "The Aurora — Where dawn meets precision engineering",
+      text: "A thoughtfully designed interface brings together devices, data, and core capabilities, offering a seamless starting point for managing and interacting with the entire IoT ecosystem.",
     },
     {
       id: 2,
       url: Dashboard,
-      text: "Midnight Series — Elegance in every second",
+      text: "Live data is presented through rich visualizations that provide continuous insight into device behavior and system performance, supporting faster, more informed decision-making.",
     },
     {
       id: 3,
       url: Rules,
-      text: "The Essence — Timeless beauty, modern soul",
+      text: "A visual, flow-driven configuration enables flexible definition of conditions and actions, allowing alerts and automated responses to adapt dynamically as operational thresholds are reached.",
     },
   ],
 };
