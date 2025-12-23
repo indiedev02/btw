@@ -33,16 +33,6 @@ const Footer = () => {
           <div className="flex justify-between mt-5 md:mt-0 md:flex-col md:justify-normal md:items-end md:text-right">
             <div className="space-y-2">
               <div>
-                <a href="#casestudies" className="hover:underline">
-                  Case studies
-                </a>
-              </div>
-              <div>
-                <a href="#blogs" className="hover:underline">
-                  Blogs
-                </a>
-              </div>
-              <div>
                 <Link
                   href="https://kernopy.com/"
                   target="_blank"
@@ -53,11 +43,6 @@ const Footer = () => {
               </div>
             </div>
             <div className="space-y-2 md:mt-2">
-              <div>
-                <a href="#services" className="hover:underline">
-                  Services
-                </a>
-              </div>
               <div>
                 <Link href="/privacy-policy" className="hover:underline">
                   Privacy policy
@@ -72,9 +57,6 @@ const Footer = () => {
           </div>
         </div>
         <div className="md:flex justify-between space-y-2">
-          {/* <div className='flex gap-4 text-xs lg:text-[16px]'>
-                    Built with ❤️ in India — for the world.
-                </div> */}
           <div className="text-[#00000075] text-xs lg:text-[16px]">
             © 2025 Blackspektro company
           </div>
